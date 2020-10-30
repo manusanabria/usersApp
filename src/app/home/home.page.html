@@ -1,80 +1,88 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="tertiary">
     <ion-title>
-      Users
+      Users App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-item>
     <ion-label>Cumpleaños</ion-label>
-    <ion-input [(ngModel)]='editUser.birthdate'></ion-input>
+    <ion-input type="text" placeholder="Cumpleaños" [(ngModel)]='editUser.birthdate'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Email</ion-label>
-    <ion-input [(ngModel)]='editUser.email'></ion-input>
+    <ion-input type="email" placeholder="Email" [(ngModel)]='editUser.email'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Nombre</ion-label>
-    <ion-input [(ngModel)]='editUser.first_name'></ion-input>
+    <ion-input type="text" placeholder="Nombre" [(ngModel)]='editUser.first_name'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Apellido</ion-label>
-    <ion-input [(ngModel)]='editUser.last_name'></ion-input>
+    <ion-input type="text" placeholder="Apellido" [(ngModel)]='editUser.last_name'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Género</ion-label>
-    <ion-input [(ngModel)]='editUser.gender'></ion-input>
+    <ion-input type="text" placeholder="Género" [(ngModel)]='editUser.gender'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Ciudad</ion-label>
-    <ion-input [(ngModel)]='editUser.city'></ion-input>
+    <ion-input type="text" placeholder="Ciudad" [(ngModel)]='editUser.city'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Código Postal</ion-label>
-    <ion-input [(ngModel)]='editUser.postcode'></ion-input>
+    <ion-input type="number" placeholder="Código Postal" [(ngModel)]='editUser.postcode'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Estado</ion-label>
-    <ion-input [(ngModel)]='editUser.state'></ion-input>
+    <ion-input type="text" placeholder="Estado" [(ngModel)]='editUser.state'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Calle</ion-label>
-    <ion-input [(ngModel)]='editUser.street'></ion-input>
+    <ion-input type="text" placeholder="Calle" [(ngModel)]='editUser.street'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Contraseña</ion-label>
-    <ion-input [(ngModel)]='editUser.password'></ion-input>
+    <ion-input type="password" placeholder="Contraseña" [(ngModel)]='editUser.password'></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Número teléfono</ion-label>
-    <ion-input [(ngModel)]='editUser.phone_number'></ion-input>
+    <ion-label>Número Teléfono</ion-label>
+    <ion-input type="number" placeholder="Número Teléfono" [(ngModel)]='editUser.phone_number'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Imágen</ion-label>
-    <ion-input [(ngModel)]='editUser.picture'></ion-input>
+    <ion-input type="text" placeholder="Imágen" [(ngModel)]='editUser.picture'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Título</ion-label>
-    <ion-input [(ngModel)]='editUser.title'></ion-input>
+    <ion-input type="text" placeholder="Título" [(ngModel)]='editUser.title'></ion-input>
   </ion-item>
   <ion-item>
     <ion-label>Username</ion-label>
-    <ion-input [(ngModel)]='editUser.username'></ion-input>
+    <ion-input type="username" placeholder="Username" [(ngModel)]='editUser.username'></ion-input>
   </ion-item>
-  <ion-button expand="block" color="success" (click)="clicAgregarUser()">Agregar nuevo usuario</ion-button>
-  <h1>Lista de usuarios</h1>
+  <ion-button expand="full" color="tertiary" (click)="clicAgregarUser()">Agregar nuevo usuario</ion-button>
+  <div class="container ion-text-center">
+    <h1>Lista de usuarios</h1>
+  </div>
   <ion-list>
     <ion-item *ngFor="let documentUser of arrayColeccionUsers" (click)="selectUser(documentUser)">
-      <ion-button color="danger" (click)="clicEliminarUser()">Eliminar usuario<ion-icon name="trash-outline"></ion-icon>
-      </ion-button>
-      <ion-button (click)="clicActualizarUser()">Actualizar usuario<ion-icon name="create-outline"></ion-icon>
-      </ion-button>
       <ion-grid>
         <ion-row>
-          <h2>{{documentUser.data.email}}</h2>
+          <ion-label>Email: <h1>{{documentUser.data.email}}</h1>
+          </ion-label>
         </ion-row>
+        <ion-row>
+          <ion-label>Nombre: <h1>{{documentUser.data.first_name}}</h1>
+          </ion-label>
+        </ion-row>
+        <ion-button (click)="clicActualizarUser()">Actualizar usuario<ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button color="danger" (click)="clicEliminarUser()">Eliminar usuario<ion-icon name="trash-outline">
+          </ion-icon>
+        </ion-button>
       </ion-grid>
     </ion-item>
   </ion-list>
